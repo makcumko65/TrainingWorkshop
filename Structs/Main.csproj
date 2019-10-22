@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Logger\Logger.csproj" />
+    <ProjectReference Include="..\Training1\Training1.csproj" />
+    <ProjectReference Include="..\Training2\Training2.csproj" />
+    <ProjectReference Include="..\Training3\Training3.csproj" />
+    <ProjectReference Include="..\Training4\Training4.csproj" />
+  </ItemGroup>
+
+</Project>
