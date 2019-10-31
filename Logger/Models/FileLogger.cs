@@ -10,7 +10,7 @@ namespace Logger.Models
     public class FileLogger : ILogger
     {
         public string Way { get; set; }
-
+        
         public FileLogger()
         {
             Way = ConfigurationManager.AppSettings.Get("UrlToPing");
