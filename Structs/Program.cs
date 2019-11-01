@@ -42,18 +42,18 @@ namespace Structs
 
 
 
-            FileHelper fileHelper = new FileHelper();
-            FileLogger fileLogger = new FileLogger();
-            try
-            {
-                string data = fileHelper.GetAllFilesByDirectory("d:\\EPAM.NET\\Structs");
-                consolePrinter.WriteLine(data);
-                //fileLogger.Save("d:\\EPAM.NET\\Structs\\data.txt", data);
-            }
-            catch (DirectoryNotFoundException)
-            {
-                consolePrinter.WriteLine("WRONG DIRECTORY");
-            }
+            //FileHelper fileHelper = new FileHelper(consolePrinter);
+            //FileLogger fileLogger = new FileLogger();
+            //try
+            //{
+            //    string data = fileHelper.GetAllFilesByDirectory("d:\\EPAM.NET\\Structs");
+            //    consolePrinter.WriteLine(data);
+            //    fileLogger.Save("d:\\EPAM.NET\\Structs\\data.txt", data);
+            //}
+            //catch (DirectoryNotFoundException)
+            //{
+            //    consolePrinter.WriteLine("WRONG DIRECTORY");
+            //}
             //consolePrinter.WriteLine(fileHelper.SearchFileByPartialName("dat", @"d:\"));
 
             //FileLogger fileLogger = new FileLogger();
@@ -104,16 +104,6 @@ namespace Structs
             //jSONSerialize.Serialize(cars);
             //Reflection reflection = new Reflection(consolePrinter);
             //reflection.GetInfoAboutDLL("Logger.dll");
-            //ExcelReader excelReader = new ExcelReader(consolePrinter);
-            //System.Diagnostics.Stopwatch time = System.Diagnostics.Stopwatch.StartNew();
-            //var smth = excelReader.GetDataTableFromExcel(1,2);
-            //foreach (var item in smth)
-            //{
-            //    Console.WriteLine(item);
-            //}
-            //time.Stop();
-            //consolePrinter.WriteLine(time.Elapsed.TotalMilliseconds.ToString());
-            //excelReader.SaveIntoFile();
 
             //Console.Write("Enter a: ");
             //double x = Double.Parse(Console.ReadLine());
@@ -126,8 +116,33 @@ namespace Structs
             //FileCalculator fileCalculator = new FileCalculator();
             //var tuple = ReadFromFile();
             //SaveToFile(fileCalculator.Calculation(tuple.Item1, tuple.Item2, tuple.Item3));
-            // FileManager fileManager = new FileManager(consolePrinter);
-            //fileManager.GetDublicateFilesInFolder("d:\\EPAM.NET\\Structs");
+            ExcelReader excelReader = new ExcelReader(consolePrinter);
+            System.Diagnostics.Stopwatch time = System.Diagnostics.Stopwatch.StartNew();
+            Console.WriteLine("Unique");
+            var smth = excelReader.GetDataTableFromExcel(1, 2);
+            foreach (var item in smth)
+            {
+                Console.WriteLine(item);
+            }
+            time.Stop();
+            consolePrinter.WriteLine($"Spend time on funtion: {time.Elapsed.TotalMilliseconds.ToString()}");
+            excelReader.SaveIntoFile();
+
+            FileManager fileManager = new FileManager(consolePrinter);
+            var dublicates = fileManager.GetDublicateFilesInTwoFolders("D:\\EPAM.NET\\Structs\\TrainingWorkshop\\Training7",
+                "D:\\EPAM.NET\\Structs\\TrainingWorkshop\\Training5");
+            Console.WriteLine("Dublicates in two folders");
+            foreach (var item in dublicates)
+            {
+                Console.WriteLine(item);
+            }
+            var unique = fileManager.GetUniqueFilesInTwoFolders("D:\\EPAM.NET\\Structs\\TrainingWorkshop\\Training7",
+                "D:\\EPAM.NET\\Structs\\TrainingWorkshop\\Training5");
+            Console.WriteLine("Uniques in two folders");
+            foreach (var item in unique)
+            {
+                Console.WriteLine(item);
+            }
             Console.ReadLine();
         }
         public static (double,double,char) ReadFromFile()

@@ -26,7 +26,7 @@ namespace Training7.Models
             var filePath = @"D:/EPAM.NET/Structs/TrainingWorkshop/Training7/excelfile.xlsx";
             FileInfo file = new FileInfo(filePath);
             var listColumn1 = new Dictionary<double,int>();
-            var listColumn2 = new Dictionary<double, int>();
+            var listColumn2 = new Dictionary<double,int>();
 
             using (ExcelPackage package = new ExcelPackage(file))
             {

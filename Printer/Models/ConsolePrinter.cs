@@ -16,5 +16,10 @@ namespace Structs.Models
         {
             Console.WriteLine(str);
         }
+
+        public void Write(string str)
+        {
+            Console.Write(str);
+        }
     }
 }

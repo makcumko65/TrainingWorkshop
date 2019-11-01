@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Structs.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -8,11 +9,17 @@ namespace Training3.Models
 {
     public class FileHelper : IFileHelper
     {
+        private readonly IPrinter printer;
+
+        public FileHelper(IPrinter printer)
+        {
+            this.printer = printer;
+        }
+
         public string GetAllFilesByDirectory(string directory)
         {
             StringBuilder data = new StringBuilder();
             DirectoryInfo dir = new DirectoryInfo($@"{directory}");
-
             try
             {
                 DirectoryInfo[] subDirectories = dir.GetDirectories();
@@ -38,7 +45,6 @@ namespace Training3.Models
                 GetSubDirectories(item);
             }
             return data.ToString();
-
         }
 
         public string SearchFileByPartialName(string partialName, string directory)

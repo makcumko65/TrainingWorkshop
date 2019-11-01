@@ -8,5 +8,6 @@ namespace Structs.Interfaces
     {
         void ReadLine();
         void WriteLine(string str);
+        void Write(string str);
     }
 }
