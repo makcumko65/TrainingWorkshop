@@ -11,6 +11,7 @@ using Training7.Models;
 using System.Data;
 using Training8.Models;
 using Training3.Models;
+using Training9.Models;
 
 namespace Structs
 {
@@ -116,6 +117,8 @@ namespace Structs
             //FileCalculator fileCalculator = new FileCalculator();
             //var tuple = ReadFromFile();
             //SaveToFile(fileCalculator.Calculation(tuple.Item1, tuple.Item2, tuple.Item3));
+
+
             ExcelReader excelReader = new ExcelReader(consolePrinter);
             System.Diagnostics.Stopwatch time = System.Diagnostics.Stopwatch.StartNew();
             Console.WriteLine("Unique");
@@ -143,6 +146,9 @@ namespace Structs
             {
                 Console.WriteLine(item);
             }
+
+            ParallelSum parallelSum = new ParallelSum(consolePrinter, 1000, 1000);
+            Console.WriteLine(parallelSum.GetParallelSum(5));
             Console.ReadLine();
         }
         public static (double,double,char) ReadFromFile()
