@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +12,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Logger\Logger.csproj" />
     <ProjectReference Include="..\Printer\Printer.csproj" />
+    <ProjectReference Include="..\Training10\Training10.csproj" />
+    <ProjectReference Include="..\Training11\Training11.csproj" />
     <ProjectReference Include="..\Training1\Training1.csproj" />
     <ProjectReference Include="..\Training2\Training2.csproj" />
     <ProjectReference Include="..\Training3\Training3.csproj" />

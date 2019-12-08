@@ -12,6 +12,12 @@ using System.Data;
 using Training8.Models;
 using Training3.Models;
 using Training9.Models;
+using Training10.DependencyInjection;
+using Training10;
+using Training10.Interfaces;
+using Training10.Services;
+using Training11.Mocks;
+using Training7;
 
 namespace Structs
 {
@@ -106,77 +112,87 @@ namespace Structs
             //Reflection reflection = new Reflection(consolePrinter);
             //reflection.GetInfoAboutDLL("Logger.dll");
 
-            //Console.Write("Enter a: ");
-            //double x = Double.Parse(Console.ReadLine());
-            //Console.Write("Enter b: ");
-            //double y = Double.Parse(Console.ReadLine());
-            //Console.Write("Enter operation: ");
-            //char operation = Char.Parse(Console.ReadLine());
-            //ConsoleCalculator consoleCalculator = new ConsoleCalculator(consolePrinter);
-            //consolePrinter.WriteLine(consoleCalculator.Calculation(x, y, operation).ToString());
-            //FileCalculator fileCalculator = new FileCalculator();
-            //var tuple = ReadFromFile();
-            //SaveToFile(fileCalculator.Calculation(tuple.Item1, tuple.Item2, tuple.Item3));
-
-
-            ExcelReader excelReader = new ExcelReader(consolePrinter);
-            System.Diagnostics.Stopwatch time = System.Diagnostics.Stopwatch.StartNew();
-            Console.WriteLine("Unique");
-            var smth = excelReader.GetDataTableFromExcel(1, 2);
-            foreach (var item in smth)
+            Console.Write("Enter a: ");
+            double x = Double.Parse(Console.ReadLine());
+            Console.Write("Enter b: ");
+            double y = Double.Parse(Console.ReadLine());
+            Console.Write("Enter operation: ");
+            char operation = Char.Parse(Console.ReadLine());
+            ConsoleCalculator consoleCalculator = new ConsoleCalculator(consolePrinter);
+            if (operation == '*')
+                consolePrinter.WriteLine(consoleCalculator.Calculation(x,y, (x1,y1) => x1 * y1).ToString());
+            else if (operation == '+') 
+                consolePrinter.WriteLine(consoleCalculator.Calculation(x, y, (x1, y1) => consoleCalculator.Add(x1, y1)).ToString());
+            else if (operation == '/')
             {
-                Console.WriteLine(item);
-            }
-            time.Stop();
-            consolePrinter.WriteLine($"Spend time on funtion: {time.Elapsed.TotalMilliseconds.ToString()}");
-            excelReader.SaveIntoFile();
-
-            FileManager fileManager = new FileManager(consolePrinter);
-            var dublicates = fileManager.GetDublicateFilesInTwoFolders("D:\\EPAM.NET\\Structs\\TrainingWorkshop\\Training7",
-                "D:\\EPAM.NET\\Structs\\TrainingWorkshop\\Training5");
-            Console.WriteLine("Dublicates in two folders");
-            foreach (var item in dublicates)
-            {
-                Console.WriteLine(item);
-            }
-            var unique = fileManager.GetUniqueFilesInTwoFolders("D:\\EPAM.NET\\Structs\\TrainingWorkshop\\Training7",
-                "D:\\EPAM.NET\\Structs\\TrainingWorkshop\\Training5");
-            Console.WriteLine("Uniques in two folders");
-            foreach (var item in unique)
-            {
-                Console.WriteLine(item);
-            }
-
-            ParallelSum parallelSum = new ParallelSum(consolePrinter, 1000, 1000);
-            Console.WriteLine(parallelSum.GetParallelSum(5));
-            Console.ReadLine();
-        }
-        public static (double,double,char) ReadFromFile()
-        {
-            var wayToRead = ConfigurationManager.AppSettings.Get("UrlToReadInFile");
-            using (StreamReader sr = new StreamReader(wayToRead))
-            {
-                var helper = sr.ReadToEnd();
                 try
                 {
-                    (double,double,char) result = (helper[0],helper[1],helper[2]);
-                    Console.WriteLine(result.Item1.ToString());
-                    Console.WriteLine(result.Item2.ToString());
-                    return result;
+                    consolePrinter.WriteLine(consoleCalculator.Calculation(x, y, (x1, y1) => x1 / y1).ToString());
                 }
-                catch (NullReferenceException)
+                catch (DivideByZeroException)
                 {
-                    throw new NullReferenceException();
+                    throw new DivideByZeroException();
                 }
             }
-        }
-        private static void SaveToFile(double result)
-        {
-            var wayToSave = ConfigurationManager.AppSettings.Get("UrlToSaveInFile");
-            using (StreamWriter sr = new StreamWriter(wayToSave))
-            {
-                sr.WriteLine(result);
-            }
+            else if (operation == '-')
+                consolePrinter.WriteLine(consoleCalculator.Calculation(x, y, (x1, y1) => x1 - y1).ToString());
+
+
+
+            //ExcelReader excelReader = new ExcelReader(consolePrinter);
+            //System.Diagnostics.Stopwatch time = System.Diagnostics.Stopwatch.StartNew();
+            //Console.WriteLine("Unique");
+            //var smth = excelReader.GetDataTableFromExcel(1, 2);
+            //foreach (var item in smth)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //time.Stop();
+            //consolePrinter.WriteLine($"Spend time on funtion: {time.Elapsed.TotalMilliseconds.ToString()}");
+            //excelReader.SaveIntoFile();
+
+            //FileManager fileManager = new FileManager(consolePrinter);
+            //var dublicates = fileManager.GetDublicateFilesInTwoFolders("D:\\EPAM.NET\\Structs\\TrainingWorkshop\\Training7",
+            //    "D:\\EPAM.NET\\Structs\\TrainingWorkshop\\Training5");
+            //Console.WriteLine("Dublicates in two folders");
+            //foreach (var item in dublicates)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //var unique = fileManager.GetUniqueFilesInTwoFolders("D:\\EPAM.NET\\Structs\\TrainingWorkshop\\Training7",
+            //    "D:\\EPAM.NET\\Structs\\TrainingWorkshop\\Training5");
+            //Console.WriteLine("Uniques in two folders");
+            //foreach (var item in unique)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //ParallelSum parallelSum = new ParallelSum(consolePrinter, 1000, 1000);
+            //Console.WriteLine(parallelSum.GetParallelSum(5));
+
+
+            var services = new DiServiceCollection();
+
+            //services.RegisterSingleton<RandomGuidGenerator>();
+            //services.RegisterTransient<RandomGuidGenerator>();
+
+
+            //services.RegisterSingleton<ISomeService, SomeServiceOne>();
+            //services.RegisterTransient<IRandomGuidProvider, RandomGuidProvider>();
+            //          services.RegisterSingleton<MainApp>();
+            services.RegisterSingleton<ICounter, RandomCounter>();
+            //services.RegisterSingleton<CounterService>();
+
+            var container = services.GenerateContainer();
+
+            var serviceFirst = container.GetService<ICounter>();
+            var serviceSecond = container.GetService<ICounter>();
+
+            Console.WriteLine(serviceFirst.Value);
+            //Console.WriteLine(serviceSecond.Value);
+
+
+            Console.ReadLine();
         }
     }
 }

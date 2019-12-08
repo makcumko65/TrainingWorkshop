@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.106
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Main", "Structs\Main.csproj", "{22C17E88-47DF-4C8B-94AC-8AF8DDA5508C}"
 EndProject
@@ -15,17 +15,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training4", "Training4\Trai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger", "Logger\Logger.csproj", "{AF6CDC25-798E-472A-AB9D-7072A941D105}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training5", "Training5\Training5.csproj", "{FB16249D-119B-4531-A6DA-E54FADA99B9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training5", "Training5\Training5.csproj", "{FB16249D-119B-4531-A6DA-E54FADA99B9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Printer", "Printer\Printer.csproj", "{9D9D5EF1-9282-4572-A8C9-9194195AFBA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Printer", "Printer\Printer.csproj", "{9D9D5EF1-9282-4572-A8C9-9194195AFBA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training6", "Training6\Training6.csproj", "{4A468E07-535F-4ED5-88BE-473FE87CE9AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training6", "Training6\Training6.csproj", "{4A468E07-535F-4ED5-88BE-473FE87CE9AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training7", "Training7\Training7.csproj", "{145BF134-FB95-4695-9A63-19CB2D1F49B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training7", "Training7\Training7.csproj", "{145BF134-FB95-4695-9A63-19CB2D1F49B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training8", "Training8\Training8.csproj", "{EC6A637E-6226-46E4-B1F2-9E1FAE4E26A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training8", "Training8\Training8.csproj", "{EC6A637E-6226-46E4-B1F2-9E1FAE4E26A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training9", "Training9\Training9.csproj", "{B4F6E022-1D79-4FCA-82B3-508002EAFEF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training9", "Training9\Training9.csproj", "{B4F6E022-1D79-4FCA-82B3-508002EAFEF1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training10", "Training10\Training10.csproj", "{4381A202-71E8-4E95-8652-7506D8BF9D1A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training11", "Training11\Training11.csproj", "{E2C69842-D305-4ADB-9CFC-279D3EDC1CC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTraining11", "TestTraining11\TestTraining11.csproj", "{FD8F842C-689D-41B2-A333-4A3AE5217802}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +87,18 @@ Global
 		{B4F6E022-1D79-4FCA-82B3-508002EAFEF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4F6E022-1D79-4FCA-82B3-508002EAFEF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4F6E022-1D79-4FCA-82B3-508002EAFEF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4381A202-71E8-4E95-8652-7506D8BF9D1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4381A202-71E8-4E95-8652-7506D8BF9D1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4381A202-71E8-4E95-8652-7506D8BF9D1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4381A202-71E8-4E95-8652-7506D8BF9D1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2C69842-D305-4ADB-9CFC-279D3EDC1CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2C69842-D305-4ADB-9CFC-279D3EDC1CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2C69842-D305-4ADB-9CFC-279D3EDC1CC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2C69842-D305-4ADB-9CFC-279D3EDC1CC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD8F842C-689D-41B2-A333-4A3AE5217802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD8F842C-689D-41B2-A333-4A3AE5217802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD8F842C-689D-41B2-A333-4A3AE5217802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD8F842C-689D-41B2-A333-4A3AE5217802}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
